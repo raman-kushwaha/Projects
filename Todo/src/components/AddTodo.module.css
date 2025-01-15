@@ -1,0 +1,13 @@
+.todo,
+.date {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    text-indent: 3px;
+    letter-spacing: 1.8px;
+}
+
+.button {
+    width: 89px;
+}
