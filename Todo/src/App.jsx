@@ -4,21 +4,17 @@ import TodoHeading from "./components/TodoHeading"
 import AddTodo from "./components/AddTodo"
 import TodoContainer from "./components/TodoContainer"
 import TodoList from "./components/TodoList"
+import { useState } from "react"
 
 
 const App = () => {
-  const todoList = [
-    {
-      todoName: 'Buy Milk',
-      todoDate: '10/10/2024'
-    },
+  const [todoList, setTodoList] = useState([])
 
-  ]
   return (
     <TodoContainer>
       <TodoHeading />
-      <AddTodo />
-      <TodoList todoList={todoList} />
+      <AddTodo setTodoList={setTodoList} />
+      <TodoList todoList={todoList} setTodoList={setTodoList} />
     </TodoContainer>
   );
 
