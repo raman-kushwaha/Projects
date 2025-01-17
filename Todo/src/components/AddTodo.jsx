@@ -1,10 +1,8 @@
-import { useRef } from "react"
 import styles from "./AddTodo.module.css"
 
-const AddTodo = ({ setTodoList }) => {
+const AddTodo = ({ setTodoList, getTodoName, getTodoDate }) => {
 
-    const getTodoName = useRef()
-    const getTodoDate = useRef()
+
 
     const onClickAddTodo = (event) => {
         const gettodoName = getTodoName.current.value
