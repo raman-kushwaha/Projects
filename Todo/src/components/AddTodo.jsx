@@ -1,23 +1,10 @@
+import { useContext } from "react"
 import styles from "./AddTodo.module.css"
+import { StorageContext } from "../store/StorageContext"
+import { MdFileDownloadDone } from "react-icons/md";
 
-const AddTodo = ({ setTodoList, getTodoName, getTodoDate }) => {
-
-
-
-    const onClickAddTodo = (event) => {
-        const gettodoName = getTodoName.current.value
-        const gettodoDate = getTodoDate.current.value
-
-
-        getTodoName.current.value = ""
-        getTodoDate.current.value = ""
-
-        setTodoList(preList => [{
-            todoName: gettodoName,
-            todoDate: gettodoDate,
-            key: `${Date.now()}`
-        }, ...preList])
-    }
+const AddTodo = () => {
+    const { getTodoName, getTodoDate, onClickAddTodo } = useContext(StorageContext)
 
     return <div className="container">
         <div className="row">
@@ -28,7 +15,9 @@ const AddTodo = ({ setTodoList, getTodoName, getTodoDate }) => {
                 <input type="date" className={styles.date} ref={getTodoDate} />
             </div>
             <div className="col-2">
-                <button type="button" className={`btn btn-primary ${styles.button}`} onClick={onClickAddTodo}>ADD</button>
+                <button type="button" className={`btn btn-primary ${styles.button}`} onClick={onClickAddTodo}>
+                    <MdFileDownloadDone />
+                </button>
             </div>
         </div>
     </div>

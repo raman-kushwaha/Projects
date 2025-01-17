@@ -5,29 +5,17 @@ import AddTodo from "./components/AddTodo"
 import TodoContainer from "./components/TodoContainer"
 import TodoList from "./components/TodoList"
 import { useState, useRef } from "react"
+import WelcomeMessage from "./components/WelcomeMessage"
 
 
 const App = () => {
-  const [todoList, setTodoList] = useState([])
-  const getTodoName = useRef()
-  const getTodoDate = useRef()
-
-  const onEditItem = (event, key) => {
-    const selectedItem = todoList.find(item => item.key === key)
-    console.log(selectedItem);
-
-    getTodoName.current.value = selectedItem.todoName
-    getTodoDate.current.value = selectedItem.todoDate
-
-    setTodoList(preList => preList.filter(item => item.key !== key))
-
-  }
 
   return (
     <TodoContainer>
       <TodoHeading />
-      <AddTodo setTodoList={setTodoList} getTodoName={getTodoName} getTodoDate={getTodoDate} />
-      <TodoList todoList={todoList} setTodoList={setTodoList} onEditItem={onEditItem} />
+      <AddTodo />
+      <WelcomeMessage />
+      <TodoList />
     </TodoContainer>
   );
 

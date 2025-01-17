@@ -1,18 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Todo from "./Todo"
+import { StorageContext } from "../store/StorageContext";
 
-const TodoList = ({ todoList, setTodoList, onEditItem }) => {
-
-
-    const onDeleteItem = (event, key) => {
-        const deleteItem = todoList.find(item => item.key === key)
-        setTodoList(preList => preList.filter(item => item.key !== deleteItem.key))
-    }
-
-
+const TodoList = () => {
+    const { todoList } = useContext(StorageContext)
     return (
         <>
-            {todoList.map(item => <Todo key={item.key} item={item} onDeleteItem={onDeleteItem} onEditItem={onEditItem} />)}
+            {todoList.map(item => <Todo key={item.key} item={item} />)}
         </>
     );
 }
